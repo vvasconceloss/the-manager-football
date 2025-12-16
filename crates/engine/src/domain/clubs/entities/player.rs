@@ -5,9 +5,12 @@ use crate::domain::{
     shared::value_objects::person_name::PersonName,
 };
 
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct PlayerId(pub u64);
+
 #[derive(Debug, Clone)]
 pub struct Player {
-    pub id: u64,
+    pub id: PlayerId,
     pub name: PersonName,
     pub positions: PlayerPositions,
     pub attributes: PlayerAttributes,
@@ -15,7 +18,7 @@ pub struct Player {
 
 impl Player {
     pub fn new(
-        id: u64,
+        id: PlayerId,
         name: PersonName,
         positions: PlayerPositions,
         attributes: PlayerAttributes,
