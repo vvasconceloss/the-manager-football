@@ -17,3 +17,9 @@ impl MatchStatistics {
         self.away_goals = away_goals;
     }
 }
+
+impl Default for MatchStatistics {
+    fn default() -> Self {
+        Self::new()
+    }
+}
