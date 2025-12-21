@@ -1,7 +1,7 @@
 use crate::domain::{
     clubs::entities::club::ClubId,
     competitions::value_objects::league::{
-        name::LeagueName, row::LeagueTableRow, table::LeagueTable,
+        name::LeagueName, row::LeagueTableRow, schedule::LeagueSchedule, table::LeagueTable,
     },
 };
 
@@ -14,6 +14,7 @@ pub struct League {
     pub name: LeagueName,
     pub clubs: Vec<ClubId>,
     pub table: LeagueTable,
+    pub schedule: Option<LeagueSchedule>,
 }
 
 impl League {
@@ -29,7 +30,12 @@ impl League {
             name,
             clubs,
             table: LeagueTable::new(rows),
+            schedule: None,
         }
+    }
+
+    pub fn set_schedule(&mut self, schedule: LeagueSchedule) {
+        self.schedule = Some(schedule);
     }
 }
 
