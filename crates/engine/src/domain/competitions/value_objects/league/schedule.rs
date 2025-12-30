@@ -3,15 +3,7 @@ use crate::domain::{
     competitions::{entities::r#match::MatchId, value_objects::r#match::status::MatchStatus},
     errors::DomainError,
 };
-use chrono::{NaiveDate, Weekday};
-
-#[derive(Debug, Clone)]
-pub struct LeagueConfig {
-    pub rounds_per_pair: u8, // 1 = single round-robin, 2 = double
-    pub days_between_rounds: u16,
-    pub blackout_dates: Vec<NaiveDate>,
-    pub preferred_weekdays: Vec<Weekday>,
-}
+use chrono::NaiveDate;
 
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct LeagueMatchId(pub u64);
